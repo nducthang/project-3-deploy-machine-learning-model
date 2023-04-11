@@ -42,10 +42,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install flake8 pytest
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-
-      # Setup DVC and pull
-      - name: Setup DVC
-        uses: iterative/setup-dvc@v1
         
       # Pull DVC
       - name: Pull DVC
