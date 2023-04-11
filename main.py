@@ -6,6 +6,7 @@ import os
 from ml.data import process_data
 from ml.model import inference
 import pandas as pd
+import numpy as np
 
 if "DYNO" in os.environ and os.path.isdir(".dvc"):
     os.system("dvc config core.no_scm true")
@@ -62,8 +63,8 @@ async def predict(data: InputData):
         "sex",
         "native-country",
     ]
-    input_data = pd.DataFrame.from_dict(
-        {key.replace('_', '-'): [value] for key, value in data.__dict__.items()})
+    sample = {key.replace('_', '-'): [value] for key, value in data.__dict__.items()}
+    input_data = pd.DataFrame.from_dict(sample)
     X, _, _, _ = process_data(
         input_data,
         categorical_features=cat_features,
@@ -73,7 +74,8 @@ async def predict(data: InputData):
         lb=lb
     )
     output = inference(model=model, X=X)[0]
-    return '<=50K' if output == 0 else '>50K'
+    str_out = '<=50K' if output == 0 else '>50K'
+    return {"pred": str_out}
 
 
 if __name__ == '__main__':
