@@ -1,9 +1,4 @@
 /config.local
-/tmp/lock
-/tmp/rwlock
-/tmp/rwlock.lock
-/tmp/lock
-/tmp/updater
-/tmp/updater.lock
+/tmp/*
 /cache
 dvc-gdrive
