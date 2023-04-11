@@ -28,11 +28,6 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-
-      - name: sanity-check
-        env:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          GDRIVE_CREDENTIALS_DATA : ${{ secrets.GDRIVE_CREDENTIALS_DATA }}
       
       # Setup python
       - name: Set up Python ${{ matrix.python-version }}
@@ -51,6 +46,8 @@ jobs:
       - name: Pull DVC
         run: |
           dvc pull
+        env:
+          GDRIVE_CREDENTIALS_DATA: ${{ secrets.GDRIVE_CREDENTIALS_DATA }}
       
       # Lint with flake8
       - name: Lint with flake8
