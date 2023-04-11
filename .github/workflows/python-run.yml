@@ -46,6 +46,7 @@ jobs:
       # Pull DVC
       - name: Pull DVC
         run: |
+          cp ./dvc/tmp/gdrive-user-credentials.json /home/runner/.cache/pydrive2fs/710796635688-iivsgbgsb6uv1fap6635dhvuei09o66c.apps.googleusercontent.com/default.json
           dvc pull
       
       # Lint with flake8
