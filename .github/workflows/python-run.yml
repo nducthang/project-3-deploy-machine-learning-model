@@ -69,6 +69,13 @@ jobs:
     needs: [build] # our builds must be pass in order to deploy job
     runs-on: ubuntu-latest
     steps:
+      # Pull DVC
+      - name: Pull DVC
+        run: |
+          dvc pull
+        env:
+          GDRIVE_CREDENTIALS_DATA: ${{ secrets.GDRIVE_CREDENTIALS_DATA }}
+      
       - name: Deploy to production
         uses: johnbeynon/render-deploy-action@v0.0.8
         with:
