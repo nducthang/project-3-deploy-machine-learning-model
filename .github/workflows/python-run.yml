@@ -68,19 +68,8 @@ jobs:
     name: Deploy
     needs: [build] # our builds must be pass in order to deploy job
     runs-on: ubuntu-latest
-
-    strategy:
-      fail-fast: false
-      matrix:
-        python-version: ["3.8"]
-      
-    steps:
-      # Setup python
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v3
-        with:
-          python-version: "${{ matrix.python-version }}"
-            
+    
+    steps: 
       - name: Deploy to production
         uses: johnbeynon/render-deploy-action@v0.0.8
         with:

@@ -10,4 +10,3 @@ dvc
 dvc[gdrive]
 pyrootutils
 httpx
-fsspec==2023.4.0
