@@ -45,7 +45,7 @@ jobs:
       # Pull DVC
       - name: Pull DVC
         run: |
-          dvc remote modify filterout --local gdrive_user_credentials_file .dvc/tmp/gdrive-user-credentials.json
+          dvc remote modify dvc-drive --local gdrive_user_credentials_file .dvc/tmp/gdrive-user-credentials.json
           dvc pull
 
       
