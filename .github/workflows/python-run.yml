@@ -42,6 +42,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install flake8 pytest
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          cp .dvc/tmp/gdrive-user-credentials.json /home/runner/.cache/pydrive2fs/710796635688-iivsgbgsb6uv1fap6635dhvuei09o66c.apps.googleusercontent.com/default.json
         
       # Pull DVC
       - name: Pull DVC
