@@ -13,9 +13,6 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-env:
-  GDRIVE_CREDENTIALS_DATA: ${{ secrets.GDRIVE_CREDENTIALS_DATA }}
-
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
