@@ -9,3 +9,4 @@ gunicorn
 dvc
 dvc[gdrive]
 pyrootutils
+httpx
