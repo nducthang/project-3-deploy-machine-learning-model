@@ -45,9 +45,9 @@ jobs:
       # Pull DVC
       - name: Pull DVC
         run: |
+          dvc remote modify filterout --local gdrive_user_credentials_file .dvc/tmp/gdrive-user-credentials.json
           dvc pull
-        env:
-          GDRIVE_CREDENTIALS_DATA: ${{ secrets.GDRIVE_CREDENTIALS_DATA }}
+
       
       # Lint with flake8
       - name: Lint with flake8
