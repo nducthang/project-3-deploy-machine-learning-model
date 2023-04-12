@@ -18,10 +18,7 @@ data = {"age": 52,
         }
 
 response = requests.post(
-    "http://https://udacity-project-3-mlops.onrender.com/predict", data=json.dumps(data))
+    "https://udacity-project-3-mlops.onrender.com/predict", data=json.dumps(data))
 
 print(response.status_code)
 print(response.json())
-print(response.json()=={
-    "pred": ">50K"
-})
